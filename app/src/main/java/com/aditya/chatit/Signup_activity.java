@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,6 +28,9 @@ public class Signup_activity extends AppCompatActivity {
     Button register_the_user;
     FirebaseAuth mfirebaseauth;
     DatabaseReference reference;
+
+    //extra button
+    TextView have_acc_already;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +41,17 @@ public class Signup_activity extends AppCompatActivity {
         password = findViewById(R.id.password_signup_user);
         register_the_user = findViewById(R.id.signup_screen_signup_btn);
         mfirebaseauth = FirebaseAuth.getInstance();
+
+        //extra buttons
+        have_acc_already = findViewById(R.id.signup_already_have_an_account);
+        have_acc_already.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent create_acc = new Intent( Signup_activity.this,login_activity.class);
+                startActivity(create_acc);
+                finish();
+            }
+        });
 
         //when the user clicks on the SignUp button , the process of Creating the user with the FirebaseAuth takes place here
         register_the_user.setOnClickListener(new View.OnClickListener() {

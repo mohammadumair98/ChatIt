@@ -17,7 +17,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class login_activity extends AppCompatActivity {
+public class login_activity extends AppCompatActivity implements ForgotPassword_Bottom_dialog.BottomSheetListener {
 
     //this page is for those users who already have an account on chat-it
     TextInputEditText email, password;
@@ -90,6 +90,14 @@ public class login_activity extends AppCompatActivity {
                 finish();
             }
         });
+
+        forgot_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ForgotPassword_Bottom_dialog bottom_dialog = new ForgotPassword_Bottom_dialog();
+                bottom_dialog.show(getSupportFragmentManager(),"Forgot password bottom sheet");
+            }
+        });
     }
 
     @Override
@@ -98,5 +106,23 @@ public class login_activity extends AppCompatActivity {
         Intent go_to_main_screen = new Intent(login_activity.this, MainActivity.class);
         startActivity(go_to_main_screen);
         finish();
+    }
+
+    @Override
+    public void onButtonClicked(String Email) {
+        FirebaseAuth mauth = FirebaseAuth.getInstance();
+        mauth.sendPasswordResetEmail(Email).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful())
+                {
+                    Toast.makeText(login_activity.this, "Email sent! ", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(login_activity.this, "Email is not registered", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }
