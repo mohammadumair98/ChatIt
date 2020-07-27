@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/chatitlogo"/>
+            <TextView
+                android:fontFamily="sans-serif-condensed-medium"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:text="ChatIt"
+                android:gravity="center|left"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <Button
+                android:id="@+id/login_screen_btn"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textStyle="bold"
+                android:textColor="#ffffff"
+                android:background="@drawable/button_blue_back"
+                android:text="LOGIN TO CHAT IT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:layout_marginTop="10dp"
+                android:id="@+id/signup_screen_btn"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/button_blue_outline_back"
+                android:text="Signup TO CHAT IT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+    </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

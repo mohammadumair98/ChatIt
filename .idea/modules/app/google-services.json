@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1063686366712",
+    "firebase_url": "https://chatit-5076d.firebaseio.com",
+    "project_id": "chatit-5076d",
+    "storage_bucket": "chatit-5076d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1063686366712:android:2d06f5a1808a51ccc7620d",
+        "android_client_info": {
+          "package_name": "com.aditya.chatit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1063686366712-om9lb1u6p650tg4rf791nmiuhqhmhfp1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aditya.chatit",
+            "certificate_hash": "eadc48c368b05180b4ba6b4603b47bb3e8c6e2ed"
+          }
+        },
+        {
+          "client_id": "1063686366712-uomcaslcrkrn1lcvihkokq7sh672baj7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCxYhVAFR6UBijdKAyTw6Wk36RweVWPdI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1063686366712-uomcaslcrkrn1lcvihkokq7sh672baj7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
