@@ -4,8 +4,8 @@
 </p>
 
 ### screenshots :rocket:
-|<img src="https://firebasestorage.googleapis.com/v0/b/github--images.appspot.com/o/ChatIt%2Fmaterial%20design.jpg?alt=media&token=4e5583fb-5720-466f-8897-7efa8900f48b" width=175> | <img src="https://firebasestorage.googleapis.com/v0/b/github--images.appspot.com/o/ChatIt%2Fgoogle%20material%20design.jpg?alt=media&token=a64e3f5c-81a5-40c2-adaa-ee68f09d04b7" width=175>|  <img src="https://firebasestorage.googleapis.com/v0/b/github--images.appspot.com/o/ChatIt%2FBOTTOM%20NAVIGATION.jpg?alt=media&token=66822a1a-f569-4e8a-89eb-f2b894a2dc20" width=175> | <img src="" width=175> |<img src="" width=175> |<img src="" width=175>|<img src="" width=175>|
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|<img src="https://firebasestorage.googleapis.com/v0/b/github--images.appspot.com/o/ChatIt%2Fmaterial%20design.jpg?alt=media&token=4e5583fb-5720-466f-8897-7efa8900f48b" width=175> | <img src="https://firebasestorage.googleapis.com/v0/b/github--images.appspot.com/o/ChatIt%2Fgoogle%20material%20design.jpg?alt=media&token=a64e3f5c-81a5-40c2-adaa-ee68f09d04b7" width=175>|  <img src="https://firebasestorage.googleapis.com/v0/b/github--images.appspot.com/o/ChatIt%2FBOTTOM%20NAVIGATION.jpg?alt=media&token=66822a1a-f569-4e8a-89eb-f2b894a2dc20" width=175> | 
+|:---:|:---:|:---:|
 
 
 ### Tools :fire:
