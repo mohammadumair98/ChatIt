@@ -15,13 +15,13 @@
 
 
 <p><h3>Features Used: </h3></p>
-Login/signup feature<br>
-Mordern UI<br>
-Uses Googles way of material design<br>
-Uses Firebase Realtime Database Users to chat with each other<br>
-Used different open source libraries to create the app<br>
-Notification feature is available when a friend sends messages<br>
-This App is still under developement and will be soon completed:-)<br>
+○ Login/signup feature<br>
+○ Mordern UI<br>
+○ Uses Googles way of material design<br>
+○ Uses Firebase Realtime Database Users to chat with each other<br>
+○ Used different open source libraries to create the app<br>
+○ Notification feature is available when a friend sends messages<br>
+○ This App is still under developement and will be soon completed:-)<br>
 
 
 ### DESCRIPTION
