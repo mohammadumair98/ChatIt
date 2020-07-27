@@ -25,5 +25,5 @@ This App is still under developement and will be soon completed:-)<br>
 
 <br></br>
 ### DESCRIPTION
-<p></p>
+<p>Chat-It is a Firebase based Android Open-Source app For developers to refer in case they want to integrate Chatting capabilities to their application. Feel free to check the app and contribute. Let's make the application better togather.</p>
 
