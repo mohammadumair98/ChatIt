@@ -2,6 +2,7 @@ package com.aditya.chatit;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,8 +28,17 @@ public class ForgotPassword_Bottom_dialog extends BottomSheetDialogFragment {
             @Override
             public void onClick(View v) {
                 String user_email = email.getText().toString();
-                mListener.onButtonClicked(user_email);
-                dismiss();
+                if(TextUtils.isEmpty(user_email))
+                {
+                    email.setError("please enter this field");
+                    email.requestFocus();
+                }
+                else
+                {
+                    mListener.onButtonClicked(user_email);
+                    dismiss();
+                }
+
             }
         });
         return v;
