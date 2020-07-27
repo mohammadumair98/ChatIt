@@ -23,7 +23,23 @@ Used different open source libraries to create the app<br>
 Notification feature is available when a friend sends messages<br>
 This App is still under developement and will be soon completed:-)<br>
 
-<br></br>
+
 ### DESCRIPTION
 <p>Chat-It is a Firebase based Android Open-Source app For developers to refer in case they want to integrate Chatting capabilities to their application. Feel free to check the app and contribute. Let's make the application better togather.</p>
 
+License
+ -------
+ 
+     Copyright 2020 adityakamath16
+ 
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+ 
+        http://www.apache.org/licenses/LICENSE-2.0
+ 
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
