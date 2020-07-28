@@ -19,11 +19,13 @@ import java.util.List;
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     private Context mContext;
     private List<ChatitUser> mUsers;
+    private boolean ischat;
 
-    public UserAdapter(Context mContext, List<ChatitUser> mUsers)
+    public UserAdapter(Context mContext, List<ChatitUser> mUsers, boolean ischat)
     {
         this.mUsers = mUsers;
         this.mContext = mContext;
+        this.ischat = ischat;
     }
 
     @NonNull
@@ -39,6 +41,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
         final ChatitUser user = mUsers.get(position);
         holder.username.setText(user.getUsername());
+
+        //to check weather the user is verified
         if(user.getVerification().equals("verified"))
         {
             holder.verified_user.setVisibility(View.VISIBLE);
@@ -47,6 +51,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         {
             holder.verified_user.setVisibility(View.GONE);
         }
+
+        //to check weather the user has a profile picture
         if (user.getImageURL().equals("default"))
         {
             holder.profile_image.setImageResource(R.mipmap.ic_launcher);
@@ -56,6 +62,24 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
             Glide.with(mContext).load(user.getImageURL()).into(holder.profile_image);
         }
 
+        //to check weather the user is online
+        if(ischat){
+            if(user.getStatus().equals("online"))
+            {
+                holder.image_on.setVisibility(View.VISIBLE);
+                holder.image_off.setVisibility(View.GONE);
+            }
+            else
+            {
+                holder.image_off.setVisibility(View.VISIBLE);
+                holder.image_on.setVisibility(View.GONE);
+
+            }
+        }
+        else {
+            holder.image_off.setVisibility(View.GONE);
+            holder.image_on.setVisibility(View.GONE);
+        }
         //when the user is clicked
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,12 +101,16 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         public TextView username;
         public ImageView profile_image, verified_user;
 
+        private ImageView image_on, image_off;
+
         public ViewHolder(View itemView)
         {
             super(itemView);
             username = itemView.findViewById(R.id.username_user_item);
             profile_image  = itemView.findViewById(R.id.profile_image_user_item);
             verified_user = itemView.findViewById(R.id.verified_user_profile);
+            image_off = itemView.findViewById(R.id.img_off);
+            image_on = itemView.findViewById(R.id.img_on);
         }
     }
 

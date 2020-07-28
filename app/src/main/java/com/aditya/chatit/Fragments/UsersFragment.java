@@ -68,7 +68,7 @@ public class UsersFragment extends Fragment {
                         mUser.add(chatitUser);
                     }
                 }
-                userAdapter = new UserAdapter(getContext(), mUser);
+                userAdapter = new UserAdapter(getContext(), mUser,false);
                 recyclerView.setAdapter(userAdapter);
                 progressBar.setVisibility(View.GONE);
             }

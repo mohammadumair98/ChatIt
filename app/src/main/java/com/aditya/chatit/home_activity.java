@@ -33,6 +33,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -112,8 +113,8 @@ public class home_activity extends AppCompatActivity {
         {
             case R.id.logout:
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(home_activity.this, MainActivity.class));
-                finish();
+                //to avoid app crashes
+                startActivity(new Intent(home_activity.this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                 return true;
         }
         return false;
@@ -166,6 +167,23 @@ public class home_activity extends AppCompatActivity {
     }
 
 
+    public void status(String status)
+    {
+        reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("status",status);
+        reference.updateChildren(hashMap);
+    }
 
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        status("online");
+    }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        status("offline");
+    }
 }
