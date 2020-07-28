@@ -1,5 +1,7 @@
 package com.aditya.chatit.Fragments;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -79,6 +81,11 @@ public class ChatsFragment extends Fragment {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 progressBar.setVisibility(View.GONE);
+                new AlertDialog.Builder(getContext())
+                        .setTitle("We are under maintenance")
+                        .setMessage("We are extremely sorry for the inconvenience. We will be back in a few hours")
+                        .setCancelable(false)
+                        .create().show();
             }
         });
         return view;
@@ -121,6 +128,7 @@ public class ChatsFragment extends Fragment {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 progressBar.setVisibility(View.GONE);
+
             }
         });
     }

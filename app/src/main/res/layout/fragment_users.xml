@@ -1,17 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.UsersFragment">
+
+    <EditText
+        android:drawableLeft="@drawable/ic_baseline_search_24"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:drawablePadding="5dp"
+        android:hint="Search"
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:id="@+id/search_users"
+        android:layout_height="wrap_content"/>
     <ProgressBar
+        android:layout_below="@+id/search_users"
         android:indeterminate="true"
         android:id="@+id/user_fragment_progressbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@+id/search_users"
         android:id="@+id/recycler_view_users"
         android:layout_height="match_parent"
         android:layout_width="match_parent"/>
-</FrameLayout>
+</RelativeLayout>

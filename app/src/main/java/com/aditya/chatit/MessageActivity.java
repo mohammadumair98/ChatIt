@@ -65,7 +65,6 @@ public class MessageActivity extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MessageActivity.this,home_activity.class));
                 finish();
             }
         });
@@ -165,23 +164,5 @@ public class MessageActivity extends AppCompatActivity {
         reference1.child("chats").push().setValue(hashMap);
     }
 
-    public void status(String status)
-    {
-        reference = FirebaseDatabase.getInstance().getReference("Users").child(fuser.getUid());
-        HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("status",status);
-        reference.updateChildren(hashMap);
-    }
 
-    @Override
-    protected void onPostResume() {
-        super.onPostResume();
-        status("online");
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        status("offline");
-    }
 }
