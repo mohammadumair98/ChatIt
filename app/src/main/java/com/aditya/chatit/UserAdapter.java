@@ -39,6 +39,14 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
         final ChatitUser user = mUsers.get(position);
         holder.username.setText(user.getUsername());
+        if(user.getVerification().equals("verified"))
+        {
+            holder.verified_user.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            holder.verified_user.setVisibility(View.GONE);
+        }
         if (user.getImageURL().equals("default"))
         {
             holder.profile_image.setImageResource(R.mipmap.ic_launcher);
@@ -67,13 +75,14 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         public TextView username;
-        public ImageView profile_image;
+        public ImageView profile_image, verified_user;
 
         public ViewHolder(View itemView)
         {
             super(itemView);
             username = itemView.findViewById(R.id.username_user_item);
             profile_image  = itemView.findViewById(R.id.profile_image_user_item);
+            verified_user = itemView.findViewById(R.id.verified_user_profile);
         }
     }
 

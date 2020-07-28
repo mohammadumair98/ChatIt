@@ -1,12 +1,14 @@
 package com.aditya.chatit;
 
 public class ChatitUser {
-    private String id, username,imageURL;
+    private String id, username,imageURL,verification,status;
 
-    public ChatitUser(String id, String username, String imageURL) {
+    public ChatitUser(String id, String username, String imageURL,String verification,String status) {
         this.id = id;
         this.username = username;
         this.imageURL = imageURL;
+        this.verification = verification;
+        this.status = status;
     }
 
     public ChatitUser()
@@ -35,5 +37,21 @@ public class ChatitUser {
 
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
+    }
+
+    public String getVerification() {
+        return verification;
+    }
+
+    public void setVerification(String verification) {
+        this.verification = verification;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

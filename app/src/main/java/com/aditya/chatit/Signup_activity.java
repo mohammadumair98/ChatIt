@@ -101,6 +101,7 @@ public class Signup_activity extends AppCompatActivity {
                         hashMap.put("id", userid);
                         hashMap.put("username", username);
                         hashMap.put("imageURL", "default");
+                        hashMap.put("verification", "unverified");
 
                         reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override

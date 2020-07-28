@@ -21,5 +21,13 @@
         android:layout_marginLeft="10dp"
         android:layout_centerVertical="true"
         android:textSize="18sp"/>
+    <ImageView
+        android:id="@+id/verified_user_profile"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@id/username_user_item"
+        android:layout_marginLeft="4dp"
+        android:src="@drawable/verifieduser"
+        android:layout_width="18sp"
+        android:layout_height="18sp"/>
 
 </RelativeLayout>
