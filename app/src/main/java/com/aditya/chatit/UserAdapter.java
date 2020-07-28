@@ -1,6 +1,7 @@
 package com.aditya.chatit;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,7 +37,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        ChatitUser user = mUsers.get(position);
+        final ChatitUser user = mUsers.get(position);
         holder.username.setText(user.getUsername());
         if (user.getImageURL().equals("default"))
         {
@@ -46,6 +47,17 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         {
             Glide.with(mContext).load(user.getImageURL()).into(holder.profile_image);
         }
+
+        //when the user is clicked
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, MessageActivity.class);
+                intent.putExtra("userid", user.getId());
+                mContext.startActivity(intent);
+            }
+        });
+
     }
 
     @Override
