@@ -61,7 +61,7 @@ public class ProfileFragment extends Fragment {
     FirebaseUser fuser;
 
     //forgot password
-    Button forgotpassword, privacy_policy;
+    Button forgotpassword, privacy_policy, change_pic, contact_developer;
 
     StorageReference storageReference;
     private static final int IMAGE_REQUEST =1;
@@ -80,6 +80,8 @@ public class ProfileFragment extends Fragment {
         //forgot password
         forgotpassword = view.findViewById(R.id.profile_forgot_password);
         privacy_policy = view.findViewById(R.id.privacy_policy_profile);
+        change_pic = view.findViewById(R.id.profile_picture_change);
+        contact_developer = view.findViewById(R.id.contact_developer_profile);
 
 
 
@@ -127,6 +129,20 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 openImage();
+            }
+        });
+        change_pic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openImage();
+            }
+        });
+
+        contact_developer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CustomTabsIntent intent = new CustomTabsIntent.Builder().setToolbarColor(getResources().getColor(R.color.colorPrimary)).build();
+                intent.launchUrl(getContext(), Uri.parse("https://github.com/adityakamath16"));
             }
         });
         return view;
