@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.media.MediaDataSource;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -51,6 +52,8 @@ public class MessageActivity extends AppCompatActivity {
     List<Chat> mchat;
     RecyclerView recyclerView;
 
+    //if the user sees the message
+    ValueEventListener seenListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +99,7 @@ public class MessageActivity extends AppCompatActivity {
                         profile_image.setImageResource(R.mipmap.ic_launcher);
                     }
                     else {
-                        Glide.with(MessageActivity.this).load(user.getImageURL()).into(profile_image);
+                        Glide.with(getApplicationContext()).load(user.getImageURL()).into(profile_image);
                     }
                     readMessages(fuser.getUid(),userid,user.getImageURL());
             }
@@ -123,6 +126,8 @@ public class MessageActivity extends AppCompatActivity {
                 text_send.setText("");
             }
         });
+
+
     }
 
     //for recyclerview
@@ -152,6 +157,30 @@ public class MessageActivity extends AppCompatActivity {
 
             }
         });
+        seenMessage(userid);
+    }
+
+    private void seenMessage(final String userid){
+        reference = FirebaseDatabase.getInstance().getReference("chats");
+        seenListener = reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot snapshot: dataSnapshot.getChildren()){
+                    Chat chat = snapshot.getValue(Chat.class);
+                    if(chat.getReceiver().equals(fuser.getUid()) && chat.getSender().equals(userid))
+                    {
+                        HashMap<String, Object> hashMap = new HashMap<>();
+                        hashMap.put("isseen",true);
+                        snapshot.getRef().updateChildren(hashMap);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
     private void sendMessage(String sender, String receiver, String message)
     {
@@ -160,9 +189,14 @@ public class MessageActivity extends AppCompatActivity {
         hashMap.put("sender",sender);
         hashMap.put("receiver", receiver);
         hashMap.put("message", message);
+        hashMap.put("isseen", false);
 
         reference1.child("chats").push().setValue(hashMap);
     }
 
-
+    @Override
+    protected void onPause() {
+        super.onPause();
+        reference.removeEventListener(seenListener);
+    }
 }
