@@ -192,6 +192,24 @@ public class MessageActivity extends AppCompatActivity {
         hashMap.put("isseen", false);
 
         reference1.child("chats").push().setValue(hashMap);
+
+        final String userid = intent.getStringExtra("userid");
+        //extra changes(add user to chat fragment)
+        final DatabaseReference chatref = FirebaseDatabase.getInstance().getReference("Chatlist")
+                .child(fuser.getUid())
+                .child(userid);
+
+        chatref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                chatref.child("id").setValue(userid);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     @Override
