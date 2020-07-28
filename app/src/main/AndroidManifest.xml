@@ -10,10 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MessageActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".home_activity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".login_activity"
             android:screenOrientation="portrait"
