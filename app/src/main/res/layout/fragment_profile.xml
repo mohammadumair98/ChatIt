@@ -54,6 +54,9 @@
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -66,11 +69,24 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="20dp"
                 android:id="@+id/profile_forgot_password"
-                android:text="FORGOT PASSWORD?"
-                android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
+                android:text="Change password"
+                android:gravity="left|center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:textColor="@android:color/background_dark"
+                android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+                android:background="@android:color/transparent"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:id="@+id/privacy_policy_profile"
+                android:gravity="left|center"
+                android:text="Privacy policy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 
 </FrameLayout>

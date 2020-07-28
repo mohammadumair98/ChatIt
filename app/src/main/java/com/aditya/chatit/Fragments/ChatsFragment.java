@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.aditya.chatit.ChatitUser;
 import com.aditya.chatit.Model.Chat;
@@ -37,16 +38,22 @@ public class ChatsFragment extends Fragment {
 
     private List<String> userList;
 
+    //for progressbar
+    ProgressBar progressBar;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_chats, container,false);
         recyclerView = view.findViewById(R.id.recycler_view_chat);
         recyclerView.setHasFixedSize(true);
+        progressBar = view.findViewById(R.id.chats_progressbar);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         fuser = FirebaseAuth.getInstance().getCurrentUser();
         userList = new ArrayList<>();
         reference = FirebaseDatabase.getInstance().getReference("chats");
+        progressBar.setVisibility(View.VISIBLE);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -65,18 +72,20 @@ public class ChatsFragment extends Fragment {
                        userList.add(chat.getSender());
                    }
                }
+               progressBar.setVisibility(View.GONE);
                readchats();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                progressBar.setVisibility(View.GONE);
             }
         });
         return view;
     }
 
     public void readchats(){
+        progressBar.setVisibility(View.VISIBLE);
         mUsers = new ArrayList<>();
         reference = FirebaseDatabase.getInstance().getReference("Users");
 
@@ -106,11 +115,12 @@ public class ChatsFragment extends Fragment {
                 }
                 userAdapter = new UserAdapter(getContext(),mUsers);
                 recyclerView.setAdapter(userAdapter);
+                progressBar.setVisibility(View.GONE);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                progressBar.setVisibility(View.GONE);
             }
         });
     }
