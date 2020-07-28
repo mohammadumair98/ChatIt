@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 
 import com.aditya.chatit.Fragments.ChatsFragment;
+import com.aditya.chatit.Fragments.ProfileFragment;
 import com.aditya.chatit.Fragments.UsersFragment;
 import com.bumptech.glide.Glide;
 import com.google.android.material.tabs.TabLayout;
@@ -93,6 +94,7 @@ public class home_activity extends AppCompatActivity {
 
         viewPagerAdapter.addFragment(new ChatsFragment(),"Chats");
         viewPagerAdapter.addFragment(new UsersFragment(),"Users");
+        viewPagerAdapter.addFragment(new ProfileFragment(),"Profile");
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
     }
