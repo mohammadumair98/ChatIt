@@ -115,6 +115,7 @@ public class home_activity extends AppCompatActivity {
                 FirebaseAuth.getInstance().signOut();
                 //to avoid app crashes
                 startActivity(new Intent(home_activity.this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                finish();
                 return true;
         }
         return false;
