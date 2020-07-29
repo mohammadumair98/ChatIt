@@ -70,6 +70,7 @@
                                 android:id="@+id/email_login_user"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:singleLine="true"
                                 android:outlineSpotShadowColor="@color/colorPrimary"
                                 android:shadowColor="@color/colorPrimary"/>
 
@@ -98,6 +99,7 @@
                                 android:inputType="textPassword"
                                 android:id="@+id/password_login_user"
                                 android:layout_width="match_parent"
+                                android:singleLine="true"
                                 android:layout_height="wrap_content"
                                 android:outlineSpotShadowColor="@color/colorPrimary"
                                 android:shadowColor="@color/colorPrimary"/>
