@@ -17,6 +17,7 @@ import android.widget.ProgressBar;
 import com.aditya.chatit.ChatitUser;
 import com.aditya.chatit.Model.Chat;
 import com.aditya.chatit.Model.ChatList;
+import com.aditya.chatit.Notifications.Token;
 import com.aditya.chatit.R;
 import com.aditya.chatit.UserAdapter;
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,6 +27,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,6 +80,7 @@ public class ChatsFragment extends Fragment {
                 progressBar.setVisibility(View.GONE);
             }
         });
+        updateToken(FirebaseInstanceId.getInstance().getToken());
         return view;
     }
 
@@ -110,5 +113,12 @@ public class ChatsFragment extends Fragment {
         });
     }
 
+    //for notification tokens
+    private void updateToken(String token){
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Tokens");
+        Token token1 = new Token(token);
+        reference.child(fuser.getUid()).setValue(token1);
+
+    }
 
 }
